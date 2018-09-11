@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>false</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>It will add one more option "Development"  at the END of the choice list "u_request_type' if "u_requested_for" = jinal patel i.e. if user is jinal patel&#13;
+&#13;
+this script will also :&#13;
+enable "u_short_descrtption' field enabled once we select Requested for the field (u_short_descrtption field we made disable on form Load .)&#13;
+it also make fields descriptions and u_what_needed visible which we have made unvisible on form Load .&#13;
+</description>
+        <field>u_requested_for</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Add option in choice list</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+   if (isLoading || newValue === '') {
+      return;
+   }
+	g_form.setDisabled("short_description",false);
+	g_form.setDisplay("u_what_needed",true);
+	g_form.setVisible("description",true);
+	
+	//make What_ needed and Descritption field visible
+	//	g_form.setVisible("u_what_needed",true);
+	//	g_form.setDisplay("description",true);
+
+		// make u_short_Description enable
+		g_form.setDisabled("short_descrtiption",false);
+
+	//here we want to add one more chice "Development" in Choice list "u_request_type' if u_requested_for' = "jinal Patel" 
+	
+	var user=g_form.getValue('u_requested_for');
+
+ //var user_label= g_form.getLabelOf('u_requested_for');
+	alert(user);
+	//alert(user_label);
+	if(user=='777c999adb0063004d3e5ff0cf961967')  //this is name of lable"Jinal Patel" 
+		{
+			alert("inside If BLock");
+			g_form.addOption("u_request_type","Development","devlopment");   //it will add one more otion at END of the choice list
+		}
+	
+		
+
+	
+	
+   //Type appropriate comment here, and begin script below
+   
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-08-30 18:28:41</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>f95d8938db1c23004d3e5ff0cf961969</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name>Add option in choice list</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_client_f95d8938db1c23004d3e5ff0cf961969</sys_update_name>
+        <sys_updated_by>Jinal.Patel</sys_updated_by>
+        <sys_updated_on>2018-09-06 16:50:33</sys_updated_on>
+        <table>x_58872_needit_needit</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

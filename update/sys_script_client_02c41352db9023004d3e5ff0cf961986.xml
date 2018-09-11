@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>active</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>(JP) Close Mandatory on Close or Resolve</name>
+        <order/>
+        <script><![CDATA[function onSubmit() {
+   /*var action = g_form.getActionName();
+   if (action != 'close_incident' && action != 'resolve_incident')
+      return;
+
+   // Close notes and Close code must be on the form
+   if (!g_form.hasField('close_notes') || !g_form.hasField('close_code'))
+      return;
+
+   var state = '6';
+   if (action == 'close_incident')
+      state = '7';
+
+   g_form.setValue('incident_state', state);
+   g_form.setValue('state', state);
+   g_form.setDisplay('close_notes', true);
+   g_form.setMandatory('close_notes', true);
+   g_form.setDisplay('close_code', true);
+   g_form.setMandatory('close_code', true);
+   if (g_form.getValue('close_notes') == '' || g_form.getValue('close_code') == '')
+      return false;
+	  
+	  */
+	
+	var action=g_form.getActionName();
+	if(action!='close_incident'||action!='resolve_incident')
+		return;
+	
+	//form must have close notes and close code field
+	
+	if(!g_form.hasField('close_notes')||!g_form.hasField('close_code'))
+		return;
+	
+	var state='6';
+	if(action=='close_incident')
+		sate='7';
+	
+	g_form.setValue('incident_state',state);
+	g_form.setValue('state',state);
+	g_form.setDisplay('close_notes',true);
+	g_form.setDisplay('close_code',true);
+	g_from.setMandatory('close_notes',true);
+	g_form.setMandatory('close_code',true);
+	
+	
+	if(g_form.getValue('close_notes')==null || g_form.getValue('close_code')== null )
+		return false;
+	
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-09-04 20:07:51</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>02c41352db9023004d3e5ff0cf961986</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>(JP) Close Mandatory on Close or Resolve</sys_name>
+        <sys_overrides display_value="">global</sys_overrides>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_client_02c41352db9023004d3e5ff0cf961986</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-09-04 21:13:24</sys_updated_on>
+        <table>incident</table>
+        <type>onSubmit</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

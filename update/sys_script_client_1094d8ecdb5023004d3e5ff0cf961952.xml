@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
     <sys_script_client action="INSERT_OR_UPDATE">
-        <active>true</active>
+        <active>false</active>
         <applies_extended>false</applies_extended>
         <condition/>
         <description>it get exceute when user update value of Short description field .</description>
@@ -15,6 +15,13 @@
       return;
    }
 
+	//here we want to add one more chice "Development" in Choice list "u_request_type' if u_requested_for' = "jinal Patel" 
+	
+	var user=g_form.getValue("u_requested_field");
+	if(user=="Jinal Patel" || user=="jinal patel")
+		{
+			g_form.addOption("u_request_type","Development","devlopment");   //it will add one more otion at END of the choice list
+		}
    //Type appropriate comment here, and begin script below
    alert("You have changed the short description from "+ oldValue + " to "+ newValue);
 }]]></script>
@@ -25,7 +32,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>1094d8ecdb5023004d3e5ff0cf961952</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>NeedIt On Change</sys_name>
         <sys_overrides/>
         <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
@@ -33,8 +40,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
         <sys_update_name>sys_script_client_1094d8ecdb5023004d3e5ff0cf961952</sys_update_name>
-        <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-08-29 19:46:05</sys_updated_on>
+        <sys_updated_by>Jinal.Patel</sys_updated_by>
+        <sys_updated_on>2018-09-06 16:49:15</sys_updated_on>
         <table>x_58872_needit_needit</table>
         <type>onChange</type>
         <ui_type>0</ui_type>
